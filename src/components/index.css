@@ -1,0 +1,20 @@
+/* ------------FOOTER STYLING */
+.footer {
+  bottom: 0;
+  background-color: hsl(180, 20%, 65%);
+  /* color: white; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0.3rem;
+  font-family: "Open Sans";
+  font-weight: bold;
+}
+.footer p {
+  margin: 1vw;
+}
+@media screen and (max-width: 500px) {
+  .footer p {
+    font-size: 2vw;
+  }
+}

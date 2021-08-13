@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import HomePage from "./pages/HomePage";
 
-function App() {
+const API = "https://job-listing-server.herokuapp.com/";
+export default function App() {
+  const [loading, setLoading] = useState(false);
+  const [isError, setError] = useState(false);
+  const [jobs, setJobs] = useState([]);
+
+  /* fetch jobs helper function */
+  const fetchJobs = async (API_URL) => {
+    setLoading(true);
+    setError(false);
+    try {
+      const res = await fetch(API_URL);
+      const jobs = await res.json();
+      setJobs(jobs);
+    } catch (error) {
+      setError(true);
+      console.log(error.message);
+    }
+    setLoading(false);
+  };
+  useEffect(() => {
+    fetchJobs(API);
+  }, []);
+  if (isError) return <h3>Error, retry...</h3>;
+  if (loading) return <h3>Loading...</h3>;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <HomePage jobs={jobs} />
     </div>
   );
 }
-
-export default App;
