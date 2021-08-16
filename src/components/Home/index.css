@@ -60,6 +60,7 @@
 }
 .select-field select,
 .form-check input {
+  outline: none;
   padding: 0.5vw;
   -webkit-box-shadow: 3px 10px 17px 5px rgba(0, 0, 0, 0.41);
   box-shadow: 3px 10px 17px 5px rgba(0, 0, 0, 0.41);
