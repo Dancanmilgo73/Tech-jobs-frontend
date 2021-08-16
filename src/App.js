@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import HomePage from "./pages/HomePage";
-
+import "./index.css";
 const API = "https://job-listing-server.herokuapp.com/";
 export default function App() {
   const [loading, setLoading] = useState(false);
@@ -25,7 +25,14 @@ export default function App() {
     fetchJobs(API);
   }, []);
   if (isError) return <h3>Error, retry...</h3>;
-  if (loading) return <h3>Loading...</h3>;
+  if (loading)
+    return (
+      <div className="d-flex justify-content-center">
+        <div className="spinner-border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
 
   return (
     <div>
