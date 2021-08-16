@@ -1,27 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import "./index.css";
 
-const initialValues = {
-  searchInput: "",
-  Seniority: "",
-  Location: "",
-  selectedRadio: "",
-};
-
-export default function Nav() {
-  const [values, setValues] = useState(initialValues);
-
+export default function Nav({ handleValues, clearVals }) {
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setValues({
-      ...values,
-      [name]: value,
-    });
+    handleValues(name, value);
   };
 
   const handleClick = (e) => {
     e.preventDefault();
-    setValues(initialValues);
+    /*  setValues(initialValues); */
+    clearVals();
     document.getElementById("formId").reset();
   };
 
