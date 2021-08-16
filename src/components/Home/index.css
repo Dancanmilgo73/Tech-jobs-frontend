@@ -3,7 +3,7 @@
   box-sizing: border-box;
   margin: 0 0 0.5vw 0;
   padding: 0;
-  position: fixed;
+  position: sticky;
   display: flex;
   flex-direction: column;
   align-items: center;
