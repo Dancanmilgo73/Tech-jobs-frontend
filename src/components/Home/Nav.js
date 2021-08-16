@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./index.css";
 
 export default function Nav({ handleValues, clearVals }) {
@@ -14,8 +14,24 @@ export default function Nav({ handleValues, clearVals }) {
     document.getElementById("formId").reset();
   };
 
+  const [show, setShow] = useState(true);
+  const controlNavbar = () => {
+    if (window.scrollY > 100) {
+      setShow(false);
+    } else {
+      setShow(true);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", controlNavbar);
+    return () => {
+      window.removeEventListener("scroll", controlNavbar);
+    };
+  }, []);
+
   return (
-    <div className="nav-con" id="search">
+    <div className={show && `nav-con`} id="search">
       <div>
         <h4>TECH JOBS</h4>
       </div>
