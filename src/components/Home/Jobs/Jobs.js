@@ -93,18 +93,24 @@ export default function Jobs({ jobs, vals }) {
   const prevPage = () => setPage((currentPage) => currentPage - 1);
   // console.log(jobs.jobs.length);
 
+  const displayPagination = jobs.length > 20 && (
+    <Pagination
+      jobsPerPage={jobsPerPage}
+      totalJobs={jobs.length}
+      paginate={paginate}
+      nextPage={nextPage}
+      prevPage={prevPage}
+    />
+  );
+
   return (
-    <div className="jobs">
-      {currentJobs.map((job) => (
-        <Job /* key={job.title} */ job={job} />
-      ))}
-      <Pagination
-        jobsPerPage={jobsPerPage}
-        totalJobs={jobs.length}
-        paginate={paginate}
-        nextPage={nextPage}
-        prevPage={prevPage}
-      />
-    </div>
+    <>
+      <div className="jobs">
+        {currentJobs.map((job) => (
+          <Job /* key={job.title} */ job={job} />
+        ))}
+        {displayPagination}
+      </div>
+    </>
   );
 }
