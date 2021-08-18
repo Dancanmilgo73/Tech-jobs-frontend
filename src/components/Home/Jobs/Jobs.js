@@ -119,7 +119,7 @@ export default function Jobs({ jobs, vals }) {
   // console.log(jobs.jobs.length);
 
   const displayPagination =
-    jobs.length < 20 && jobs.length > 1 ? (
+    jobs.length < 20 && jobs.length > 0 ? (
       <Nothing />
     ) : (
       <Pagination
