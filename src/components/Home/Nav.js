@@ -31,7 +31,7 @@ export default function Nav({ handleValues, clearVals }) {
   }, []);
 
   return (
-    <div className={show && `nav-con`} id="search">
+    <div className={show ? `nav-con` : ""} id="search">
       <div>
         <h4>TECH JOBS</h4>
       </div>
@@ -62,15 +62,15 @@ export default function Nav({ handleValues, clearVals }) {
           <div className="select-field">
             <select onChange={handleChange} defaultValue="" name="Seniority">
               <option value="">Seniority</option>
-              <option value="Entry_level">Entry Level</option>
-              <option value="Mid_level">Mid-level</option>
-              <option value="Senior_level">Senior-level</option>
+              <option value="entry level">Entry Level</option>
+              <option value="mid level">Mid-level</option>
+              <option value="senior level">Senior-level</option>
             </select>
             <select onChange={handleChange} defaultValue="" name="Location">
               <option value="">Location</option>
-              <option value="Remote">Remote</option>
-              <option value="Usa">USA</option>
-              <option value="Kenya">Kenya</option>
+              <option value="remote">Remote</option>
+              <option value="rsa">RSA</option>
+              <option value="kenya">Kenya</option>
             </select>
             <div className="form-check">
               <div>
@@ -78,10 +78,10 @@ export default function Nav({ handleValues, clearVals }) {
                   className="form-check-input"
                   type="radio"
                   name="selectedRadio"
-                  value="Full time"
+                  value="permanent"
                   onChange={handleChange}
                 />
-                <label className="form-check-label">Full Time</label>
+                <label className="form-check-label">Permanent</label>
               </div>
 
               <div /* className="form-check" */>
@@ -89,10 +89,10 @@ export default function Nav({ handleValues, clearVals }) {
                   className="form-check-input"
                   type="radio"
                   name="selectedRadio"
-                  value="Part time"
+                  value="contract"
                   onChange={handleChange}
                 />
-                <label className="form-check-label">Part Time</label>
+                <label className="form-check-label">Contract</label>
               </div>
             </div>
           </div>

@@ -14,7 +14,7 @@ export default function App() {
     try {
       const res = await fetch(API_URL);
       const jobs = await res.json();
-      setJobs(jobs);
+      setJobs(jobs[0]["results"]);
     } catch (error) {
       setError(true);
       console.log(error.message);
@@ -34,9 +34,5 @@ export default function App() {
       </div>
     );
 
-  return (
-    <div>
-      <HomePage jobs={jobs} />
-    </div>
-  );
+  return <div>{<HomePage jobs={jobs} />}</div>;
 }

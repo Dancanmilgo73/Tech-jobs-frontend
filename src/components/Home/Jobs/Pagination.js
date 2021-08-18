@@ -30,9 +30,9 @@ export default function Pagination({
             </li>
           ))}
           <li className="page-item">
-            <a className="page-link" href="#" onClick={() => nextPage()}>
+            {/* <a className="page-link" href="#" onClick={() => nextPage()}>
               Next
-            </a>
+            </a> */}
           </li>
         </ul>
       </nav>

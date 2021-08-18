@@ -10,7 +10,7 @@ const initialValues = {
   selectedRadio: "",
 };
 
-export default function HomePage(jobs) {
+export default function HomePage({ jobs }) {
   const [values, setValues] = useState(initialValues);
 
   const handleValues = (name, value) => {
@@ -22,11 +22,11 @@ export default function HomePage(jobs) {
   const clearVals = () => {
     setValues(initialValues);
   };
-  console.log(values);
+
   return (
     <div>
       <Nav handleValues={handleValues} clearVals={clearVals} />
-      <Jobs jobs={jobs.jobs} vals={values} />
+      <Jobs jobs={jobs} vals={values} />
       <Footer />
     </div>
   );

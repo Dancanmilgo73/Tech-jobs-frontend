@@ -2,15 +2,17 @@ export default function calcDays(datePosted) {
   let date1 = new Date(datePosted);
   let date2 = new Date();
   let diff_in_time = date2.getTime() - date1.getTime();
-  if (getDays(date1, date2, diff_in_time) < 30) {
-    return getDays(date1, date2, diff_in_time) + " days ago";
-  }
-  if (getWeeks(date1, date2, diff_in_time) < 4) {
-    return getWeeks(date1, date2, diff_in_time) + " weeks ago";
-  }
-
-  if (getWeeks(date1, date2, diff_in_time) > 4) {
+  if (getDays(date1, date2, diff_in_time) > 31) {
     return "over a month ago";
+  } else if (
+    getDays(date1, date2, diff_in_time) < 31 &&
+    getDays(date1, date2, diff_in_time) > 7
+  ) {
+    return getWeeks(date1, date2, diff_in_time) + " weeks ago";
+  } else {
+    return getDays(date1, date2, diff_in_time) < 2
+      ? "yesterday"
+      : getDays(date1, date2, diff_in_time) + " days ago";
   }
 }
 

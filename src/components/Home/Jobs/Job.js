@@ -15,20 +15,21 @@ export default function Job({ job }) {
       data-bs-target={`#jobModal${job.id}`}
     >
       <div className="logo">
-        <img src={job.company_logo} alt="logo"></img>
+        {/*  <img src={job.company_logo} alt="logo"></img> */}
+        {job.category.label}
       </div>
       <div className="jobDetails">
-        <p>{job.company}</p>
+        <p>{job.company.display_name}</p>
         <p>
           <b>{job.title}</b>
         </p>
-        <p>{job.location}</p>
+        <p>{job.location.display_name}</p>
       </div>
       <div className="age">
         <p>
-          <b>{job.type}</b>
+          <b>{job.contract_type}</b>
         </p>
-        <p>{calcDays(job.created_at)}</p>
+        <p>{calcDays(job.created)}</p>
       </div>
 
       {/* <!-- Modal --> */}
@@ -45,11 +46,7 @@ export default function Job({ job }) {
               <h5 className="modal-title" id="exampleModalLabel">
                 <div className="modal-header-top">
                   {job.title}
-                  <img
-                    src={job.company_logo}
-                    className="modal-img-top"
-                    alt=""
-                  />
+                  {/* <img src={job.logo} className="modal-img-top" alt="" /> */}
                 </div>
               </h5>
               <button
@@ -71,7 +68,11 @@ export default function Job({ job }) {
               >
                 Close
               </button>
-              <a href={job.url} target="_blank" rel="noopener noreferrer">
+              <a
+                href={job.redirect_url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <button type="button" className="btn btn-primary">
                   Apply
                 </button>
